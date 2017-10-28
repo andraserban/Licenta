@@ -1,0 +1,10 @@
+C:\Users\Andra Serban\source\repos\App\App\bin\Debug\App.exe.config
+C:\Users\Andra Serban\source\repos\App\App\bin\Debug\App.exe
+C:\Users\Andra Serban\source\repos\App\App\bin\Debug\App.pdb
+C:\Users\Andra Serban\source\repos\App\App\obj\Debug\App.csprojResolveAssemblyReference.cache
+C:\Users\Andra Serban\source\repos\App\App\obj\Debug\App.Form1.resources
+C:\Users\Andra Serban\source\repos\App\App\obj\Debug\App.Properties.Resources.resources
+C:\Users\Andra Serban\source\repos\App\App\obj\Debug\App.csproj.GenerateResource.Cache
+C:\Users\Andra Serban\source\repos\App\App\obj\Debug\App.csproj.CoreCompileInputs.cache
+C:\Users\Andra Serban\source\repos\App\App\obj\Debug\App.exe
+C:\Users\Andra Serban\source\repos\App\App\obj\Debug\App.pdb
