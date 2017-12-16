@@ -10,24 +10,19 @@ int led3Pin = 21;
 
 boolean isConnected = false;
 
-//LiquidCrystal lcd(8,9,4,5,6,7);
-const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
-LiquidCrystal lcd(rs, en, d4, d5, d6, d7); 
+LiquidCrystal lcd(8,9,4,5,6,7); 
 
 
 void setup() {
   
   Serial.begin(9600);
- pinMode(led1Pin,OUTPUT);
- // pinMode(led2Pin,OUTPUT);
-  //pinMode(led3Pin,OUTPUT);
-  //initDisplay();
-  lcd.begin(16, 2);
-  lcd.print("Ready to connect");
+  pinMode(led1Pin,OUTPUT);
+  pinMode(led2Pin,OUTPUT);
+  pinMode(led3Pin,OUTPUT);
+  initDisplay();
 }
 
 void loop() {
-
 
 if(stringComplete)
 {
@@ -40,9 +35,9 @@ if(stringComplete)
   }
   if(commandString.equals("STOP"))
   {
- turnLedOff(led1Pin);
-   turnLedOff(led2Pin);
-  turnLedOff(led3Pin);
+    turnLedOff(led1Pin);
+    turnLedOff(led2Pin);
+    turnLedOff(led3Pin);
     lcd.clear();
     lcd.print("Ready to connect");    
   }
@@ -162,5 +157,4 @@ void serialEvent() {
     }
   }
 }
-
 
