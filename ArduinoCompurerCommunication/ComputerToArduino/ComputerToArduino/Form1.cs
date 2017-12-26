@@ -6,6 +6,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.IO.Ports;
+using System.Xml;
+using System.ServiceModel;
+using System.ServiceModel.Description;
+using System.ServiceModel.Syndication;
+using System.ServiceModel.Web;
 
 namespace ComputerToArduino
 {
@@ -108,6 +113,37 @@ namespace ComputerToArduino
         private void groupBox3_Enter(object sender, EventArgs e)
         {
 
+        }
+       
+
+        private void buttonAdd_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                XmlReader readXml = XmlReader.Create(textBoxURL.Text);
+                SyndicationFeed feed = SyndicationFeed.Load(readXml);
+
+                TabPage tab = new TabPage(feed.Title.Text);
+
+                tabControlRSS.TabPages.Add(tab);
+
+                ListBox list = new ListBox();
+
+                tab.Controls.Add(list);
+
+                //list.Dock = DockStyle.Fill;
+
+                list.HorizontalScrollbar = true;
+
+                foreach (SyndicationItem item in feed.Items)
+                {
+                    list.Items.Add(item.Title.Text);
+                    list.Items.Add(item.Summary.Text);
+                    list.Items.Add("------------------");
+                }
+
+            }
+            catch { }
         }
     }
 }
