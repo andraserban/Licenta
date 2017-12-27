@@ -138,5 +138,23 @@ namespace rssMergedWithArduino
             textBoxLCD.Text = "";
 
         }
+
+        private void buttonWriteRSS_Click(object sender, EventArgs e)
+        {
+            XmlReader readXml = XmlReader.Create(textBoxURL.Text);
+            SyndicationFeed feed = SyndicationFeed.Load(readXml);
+           
+
+            if (isConnected)
+            {
+                foreach (SyndicationItem item in feed.Items)
+                {
+                    
+                    port.Write("#TEXT" + item.Title.Text + "#\n");
+                   
+                }
+            }
+
+        }
     }
 }

@@ -37,13 +37,16 @@
             this.buttonConnect = new System.Windows.Forms.Button();
             this.groupBoxLCD = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.buttonWriteRSS = new System.Windows.Forms.Button();
+            this.groupBoxRSS = new System.Windows.Forms.GroupBox();
             this.groupBoxLCD.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBoxRSS.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(533, 23);
+            this.buttonAdd.Location = new System.Drawing.Point(236, 19);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(75, 23);
             this.buttonAdd.TabIndex = 0;
@@ -54,17 +57,17 @@
             // 
             // textBoxURL
             // 
-            this.textBoxURL.Location = new System.Drawing.Point(299, 26);
+            this.textBoxURL.Location = new System.Drawing.Point(23, 22);
             this.textBoxURL.Name = "textBoxURL";
             this.textBoxURL.Size = new System.Drawing.Size(207, 20);
             this.textBoxURL.TabIndex = 1;
             // 
             // tabControlRSS
             // 
-            this.tabControlRSS.Location = new System.Drawing.Point(306, 72);
+            this.tabControlRSS.Location = new System.Drawing.Point(23, 69);
             this.tabControlRSS.Name = "tabControlRSS";
             this.tabControlRSS.SelectedIndex = 0;
-            this.tabControlRSS.Size = new System.Drawing.Size(313, 177);
+            this.tabControlRSS.Size = new System.Drawing.Size(288, 166);
             this.tabControlRSS.TabIndex = 2;
             // 
             // textBoxLCD
@@ -125,23 +128,45 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Serial Connection";
             // 
+            // buttonWriteRSS
+            // 
+            this.buttonWriteRSS.Location = new System.Drawing.Point(23, 252);
+            this.buttonWriteRSS.Name = "buttonWriteRSS";
+            this.buttonWriteRSS.Size = new System.Drawing.Size(75, 23);
+            this.buttonWriteRSS.TabIndex = 9;
+            this.buttonWriteRSS.Text = "Write RSS";
+            this.buttonWriteRSS.UseVisualStyleBackColor = true;
+            this.buttonWriteRSS.Click += new System.EventHandler(this.buttonWriteRSS_Click);
+            // 
+            // groupBoxRSS
+            // 
+            this.groupBoxRSS.Controls.Add(this.tabControlRSS);
+            this.groupBoxRSS.Controls.Add(this.buttonWriteRSS);
+            this.groupBoxRSS.Controls.Add(this.textBoxURL);
+            this.groupBoxRSS.Controls.Add(this.buttonAdd);
+            this.groupBoxRSS.Location = new System.Drawing.Point(279, 12);
+            this.groupBoxRSS.Name = "groupBoxRSS";
+            this.groupBoxRSS.Size = new System.Drawing.Size(362, 281);
+            this.groupBoxRSS.TabIndex = 10;
+            this.groupBoxRSS.TabStop = false;
+            this.groupBoxRSS.Text = "RSS";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(674, 305);
+            this.Controls.Add(this.groupBoxRSS);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBoxLCD);
-            this.Controls.Add(this.tabControlRSS);
-            this.Controls.Add(this.textBoxURL);
-            this.Controls.Add(this.buttonAdd);
             this.Name = "Form1";
             this.Text = "Form1";
             this.groupBoxLCD.ResumeLayout(false);
             this.groupBoxLCD.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBoxRSS.ResumeLayout(false);
+            this.groupBoxRSS.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -156,6 +181,8 @@
         private System.Windows.Forms.Button buttonConnect;
         private System.Windows.Forms.GroupBox groupBoxLCD;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button buttonWriteRSS;
+        private System.Windows.Forms.GroupBox groupBoxRSS;
     }
 }
 
