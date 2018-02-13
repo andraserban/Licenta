@@ -143,7 +143,7 @@ namespace rssMergedWithArduino
         {
             XmlReader readXml = XmlReader.Create(textBoxURL.Text);
             SyndicationFeed feed = SyndicationFeed.Load(readXml);
-           
+            string nullText = " ";
 
             if (isConnected)
             {
@@ -151,7 +151,9 @@ namespace rssMergedWithArduino
                 {
                     
                     port.Write("#TEXT" + item.Title.Text + "#\n");
-                   
+                //    port.Write("#TEXT" + nullText + "#\n");
+
+
                 }
             }
 

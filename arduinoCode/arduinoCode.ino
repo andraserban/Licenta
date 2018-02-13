@@ -1,4 +1,12 @@
 #include <LiquidCrystal.h>
+#include "DHT.h"
+
+#define DHTPIN 22
+
+#define DHTTYPE DHT11
+
+DHT dht(DHTPIN, DHTTYPE);
+
 
 String inputString = "";         // a string to hold incoming data
 boolean stringComplete = false;  // whether the string is complete
@@ -19,7 +27,7 @@ boolean isConnected = false;
  * LCD R/W pin to ground
  * LCD VSS pin to ground
  * LCD VCC pin to 5V*/
-//LiquidCrystal lcd(8,9,4,5,6,7);
+
 const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7); 
 
@@ -28,8 +36,12 @@ void setup() {
   
   Serial.begin(9600);
  pinMode(led1Pin,OUTPUT);
- // pinMode(led2Pin,OUTPUT);
-  //pinMode(led3Pin,OUTPUT);
+
+lcdReadSensor();
+delay(5000);
+getTemperatureAndHumidity();
+delay(5000);
+
   //initDisplay();
   lcd.begin(16, 2);
   lcd.print("Ready to connect");
@@ -37,6 +49,7 @@ void setup() {
 
 void loop() {
 
+//getTemperatureAndHumidity();
 
 if(stringComplete)
 {
@@ -49,9 +62,9 @@ if(stringComplete)
   }
   if(commandString.equals("STOP"))
   {
- turnLedOff(led1Pin);
-   turnLedOff(led2Pin);
-  turnLedOff(led3Pin);
+    turnLedOff(led1Pin);
+     turnLedOff(led2Pin);
+     turnLedOff(led3Pin);
     lcd.clear();
     lcd.print("Ready to connect");    
   }
@@ -104,7 +117,36 @@ void initDisplay()
   lcd.begin(16, 2);
   lcd.print("Ready to connect");
 }
+void lcdReadSensor()
+{
+    lcd.begin(16,2);
+    lcd.print("Reading sensor");
+    dht.begin();
+}
 
+void getTemperatureAndHumidity()
+{
+  float temperature, humidity;
+
+  humidity = dht.readHumidity();
+  temperature = dht.readTemperature();
+  delay(2000);
+
+  lcd.clear();
+
+  char tempF[6];
+  char humF[6];
+  dtostrf(temperature, 5, 1, tempF);
+  dtostrf(humidity, 2, 0, humF);
+
+  lcd.print("T:");
+  lcd.print(tempF);
+  lcd.print((char)223);
+  lcd.print("C ");
+  lcd.print("H: ");
+  lcd.print(humF);
+  lcd.print("%");
+}
 boolean getLedState()
 {
   boolean state = false;
